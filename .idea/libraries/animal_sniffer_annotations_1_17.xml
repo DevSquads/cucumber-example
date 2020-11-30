@@ -1,0 +1,32 @@
+<component name="libraryTable">
+  <library name="animal-sniffer-annotations-1.17">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/animal-sniffer-annotations-1.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/checker-qual-2.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-configuration-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-io-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-lang3-3.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/cucumber-reporting-5.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/error_prone_annotations-2.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/failureaccess-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/guava-27.1-jre.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/j2objc-annotations-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jackson-annotations-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jackson-core-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jackson-databind-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jackson-datatype-jsr310-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/joda-time-2.10.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jsoup-1.12.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/jsr305-3.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/owasp-java-html-sanitizer-20191001.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/plexus-utils-3.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-reporting/velocity-engine-core-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="apiguardian-api-1.1.0 (3)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/apiguardian-api-1.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/create-meta-2.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-core-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-expressions-10.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-gherkin-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-gherkin-messages-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-junit-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/cucumber-plugin-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/datatable-3.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/docstring-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/html-formatter-9.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/junit-4.13.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/messages-13.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-junit/tag-expressions-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

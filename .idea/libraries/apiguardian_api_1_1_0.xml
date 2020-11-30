@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="apiguardian-api-1.1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/apiguardian-api-1.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/create-meta-2.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/cucumber-core-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/cucumber-expressions-10.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/cucumber-gherkin-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/cucumber-gherkin-messages-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/cucumber-plugin-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/datatable-3.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/docstring-6.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/html-formatter-9.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/messages-13.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cucumber-core/tag-expressions-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
