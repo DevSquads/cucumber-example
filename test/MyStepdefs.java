@@ -11,18 +11,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MyStepdefs {
-    public MyStepdefs() {
-    }
-
-    public MyStepdefs(WebDriver driver) {
-        this.driver = driver;
-    }
-
+    public static final String PATH_TO_WEBDRIVER = "./lib/webdriver/chromedriver_mac";
     public static final String DEVSQUADS_URL = "https://devsquads.com/";
     private WebDriver driver;
 
     @Given("Browser is opened and on DevSquads website")
     public void openBrowserAndVisitDevSquadsWebsite() {
+        System.setProperty(
+                "webdriver.chrome.driver",
+                PATH_TO_WEBDRIVER);
         this.driver = new ChromeDriver();
         visit(DEVSQUADS_URL);
     }
