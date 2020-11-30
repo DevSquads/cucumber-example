@@ -1,3 +1,4 @@
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -65,5 +66,9 @@ public class MyStepdefs {
 
     private WebElement getElementContains(String text) {
         return waitForElementToBeVisible(By.xpath("//*[text()[contains(.,'" + text + "')]]"));
+    }
+    @After
+    public void cleanUp() {
+        driver.close();
     }
 }
