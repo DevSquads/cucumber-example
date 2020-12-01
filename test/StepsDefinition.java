@@ -1,4 +1,5 @@
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,18 +13,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepsDefinition {
     public static final String PATH_TO_WEBDRIVER = "./lib/webdriver/chromedriver_mac";
-    public static final String GOOGLE_TRANSLATE_URL = "https://translate.google.com/";
     private WebDriver driver;
 
-    @Given("Browser is opened")
+    @Before
     public void browserIsOpened() {
         System.setProperty(
                 "webdriver.chrome.driver",
                 PATH_TO_WEBDRIVER);
         this.driver = new ChromeDriver();
-
     }
-    @When("I visit {string}")
+
+    @Given("I visit {string}")
     public void iVisit(String url) {
         driver.get(url);
     }
@@ -36,7 +36,7 @@ public class StepsDefinition {
 
     }
 
-    @And("I choose to translate into Arabic")
+    @When("I choose to translate into Arabic")
     public void iChooseToTranslateIntoArabic() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement moreLanguagesButton = wait.until(

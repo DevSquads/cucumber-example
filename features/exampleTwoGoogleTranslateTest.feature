@@ -1,9 +1,8 @@
 Feature: Google translate
 
   Scenario Outline: Translate from English to arabic
-    Given Browser is opened
-    When I visit "https://translate.google.com/"
-    And I choose to translate into Arabic
+    Given I visit "https://translate.google.com/"
+    When I choose to translate into Arabic
     And Type "<text>"
     Then Should translate into "<arabicText>"
 
