@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepsDefinition {
     public static final String PATH_TO_WEBDRIVER = "./lib/webdriver/chromedriver_mac";
-    public static final String GOOGLE_URL = "https://www.google.com/";
+    public static final String GOOGLE_TRANSLATE_URL = "https://translate.google.com/";
     private WebDriver driver;
 
     @Given("Browser is opened and on {string}")
@@ -51,20 +51,14 @@ public class StepsDefinition {
 
     }
 
-    @Given("Browser is opened and on Google")
-    public void openBrowserAndVisitGoogle() {
+
+    @Given("Browser is opened and on Google translate")
+    public void browserIsOpenedAndOnGoogleTranslate() {
         System.setProperty(
                 "webdriver.chrome.driver",
                 PATH_TO_WEBDRIVER);
         this.driver = new ChromeDriver();
-        driver.get(GOOGLE_URL);
-    }
-
-    @When("Search for translate")
-    public void searchForTranslate() {
-        WebElement searchBox =  driver.findElement(By.name("q"));
-        searchBox.sendKeys("translate");
-        searchBox.sendKeys(Keys.ENTER);
+        driver.get(GOOGLE_TRANSLATE_URL);
     }
 
     @And("Type Software Engineer")
@@ -75,16 +69,42 @@ public class StepsDefinition {
         translationTextBox.sendKeys("software engineer");
     }
 
-    @Then("Should translate into Arabic")
-    public void shouldTranslateIntoArabic() {
+    @When("Type {string}")
+    public void type(String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement moreLanguagesButton = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("button[aria-label=\"More target languages\"]"))
+
+        );
+        moreLanguagesButton.click();
+        WebElement arabicLanguageOption = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("button[data-language-code=\"ar\"]"))
+        );
+        moreLanguagesButton.click();
+        arabicLanguageOption.click();
+        moreLanguagesButton.click();
+        WebElement translationTextBox = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.className("er8xn")));
+        translationTextBox.sendKeys(text);
+    }
+
+
+    @Then("Should translate into {string}")
+    public void shouldTranslateInto(String arabicText) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'" + "مهندس برمجيات" + "')]]")));
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//*[text()[contains(.,'" +  arabicText + "')]]")));
+
     }
+
 
     @After
     public void cleanUp() {
         driver.close();
     }
+
 
 }

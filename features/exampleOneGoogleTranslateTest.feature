@@ -1,6 +1,12 @@
 Feature: Google translate
-  Scenario: Translate from English to arabic
-    Given Browser is opened and on Google
-    When Search for translate
-    And Type Software Engineer
-    Then Should translate into Arabic
+
+  Scenario Outline: Translate from English to arabic
+    Given Browser is opened and on Google translate
+    When Type "<text>"
+    Then Should translate into "<arabicText>"
+
+
+    Examples:
+      | text              | arabicText     |
+      | software Engineer | مهندس برمجيات  |
+      | automated testing | الاختبار الآلي |
