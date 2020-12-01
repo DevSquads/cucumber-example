@@ -36,8 +36,8 @@ public class StepsDefinition {
 
     }
 
-    @And("Type {string}")
-    public void type(String text) {
+    @And("I choose to translate into Arabic")
+    public void iChooseToTranslateIntoArabic() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement moreLanguagesButton = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
@@ -52,6 +52,12 @@ public class StepsDefinition {
         moreLanguagesButton.click();
         arabicLanguageOption.click();
         moreLanguagesButton.click();
+
+    }
+
+    @And("Type {string}")
+    public void type(String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement translationTextBox = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.className("er8xn")));
         translationTextBox.sendKeys(text);
