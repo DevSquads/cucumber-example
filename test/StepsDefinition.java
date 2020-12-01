@@ -14,33 +14,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StepsDefinition {
     public static final String PATH_TO_WEBDRIVER = "./lib/webdriver/chromedriver_mac";
-    public static final String DEVSQUADS_URL = "https://devsquads.com/";
     public static final String GOOGLE_URL = "https://www.google.com/";
     private WebDriver driver;
 
-    @Given("Browser is opened and on DevSquads website")
-    public void openBrowserAndVisitDevSquadsWebsite() {
+    @Given("Browser is opened and on {string}")
+    public void browserIsOpenedAndOn(String url) {
         System.setProperty(
                 "webdriver.chrome.driver",
                 PATH_TO_WEBDRIVER);
+
         this.driver = new ChromeDriver();
-        visit(DEVSQUADS_URL);
+        driver.get(url);
     }
 
     @When("Hover over about tab")
     public void hoverOverAboutTab() {
-        WebElement aboutTab = getElementByText("About");
-        hoverOver(aboutTab);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement aboutTab = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text() = '" + "About" + "']")));
+
+        Actions a = new Actions(driver);
+        a.moveToElement(aboutTab).perform();
     }
 
     @And("Click on Teams")
     public void clickOnTeams() {
-        getElementByCssSelector("a[href=\"./team.html\"]").click();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href=\"./team.html\"]"))).click();
     }
+    @Then("Should find {string}")
+    public void shouldFind(String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'" + text + "')]]")));
 
-    @Then("Should find Amr Elssamadisy")
-    public void shouldFindAmrElssamadisy() {
-        getElementContains("Amr Elssamadisy");
     }
 
     @Given("Browser is opened and on Google")
@@ -49,23 +57,29 @@ public class StepsDefinition {
                 "webdriver.chrome.driver",
                 PATH_TO_WEBDRIVER);
         this.driver = new ChromeDriver();
-        visit(GOOGLE_URL);
+        driver.get(GOOGLE_URL);
     }
 
     @When("Search for translate")
     public void searchForTranslate() {
-        searchGoogleFor("translate");
+        WebElement searchBox =  driver.findElement(By.name("q"));
+        searchBox.sendKeys("translate");
+        searchBox.sendKeys(Keys.ENTER);
     }
 
     @And("Type Software Engineer")
     public void typeSoftwareEngineer() {
-        WebElement translationTextBox = getElementById("tw-source-text-ta");
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement translationTextBox = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("tw-source-text-ta")));
         translationTextBox.sendKeys("software engineer");
     }
 
     @Then("Should translate into Arabic")
     public void shouldTranslateIntoArabic() {
-        getElementContains("مهندس برمجيات");
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'" + "مهندس برمجيات" + "')]]")));
     }
 
     @After
@@ -73,44 +87,4 @@ public class StepsDefinition {
         driver.close();
     }
 
-    private void visit(String url) {
-        driver.get(url);
-    }
-
-    private WebElement getElementByText(String text) {
-        return waitForElementToBeVisible(By.xpath("//*[text() = '" + text + "']"));
-    }
-
-    private WebElement waitForElementToBeVisible(By selector) {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(selector));
-    }
-
-    private void hoverOver(WebElement aboutTab) {
-        Actions a = new Actions(driver);
-        a.moveToElement(aboutTab).perform();
-    }
-
-    private WebElement getElementByCssSelector(String cssSelector) {
-        return waitForElementToBeVisible(By.cssSelector(cssSelector));
-    }
-
-    private WebElement getElementContains(String text) {
-        return waitForElementToBeVisible(By.xpath("//*[text()[contains(.,'" + text + "')]]"));
-    }
-
-    private void searchGoogleFor(String keyword) {
-        WebElement searchBox = getElementByName("q");
-        searchBox.sendKeys(keyword);
-        searchBox.sendKeys(Keys.ENTER);
-    }
-
-    private WebElement getElementByName(String name) {
-        return driver.findElement(By.name(name));
-    }
-
-    private WebElement getElementById(String id) {
-        return waitForElementToBeVisible(By.id(id));
-    }
 }
