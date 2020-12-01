@@ -4,11 +4,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,32 +15,19 @@ public class StepsDefinition {
     public static final String GOOGLE_TRANSLATE_URL = "https://translate.google.com/";
     private WebDriver driver;
 
-    @Given("Browser is opened and on {string}")
-    public void browserIsOpenedAndOn(String url) {
+    @Given("Browser is opened")
+    public void browserIsOpened() {
         System.setProperty(
                 "webdriver.chrome.driver",
                 PATH_TO_WEBDRIVER);
-
         this.driver = new ChromeDriver();
+
+    }
+    @When("I visit {string}")
+    public void iVisit(String url) {
         driver.get(url);
     }
 
-    @When("Hover over about tab")
-    public void hoverOverAboutTab() {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        WebElement aboutTab = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text() = '" + "About" + "']")));
-
-        Actions a = new Actions(driver);
-        a.moveToElement(aboutTab).perform();
-    }
-
-    @And("Click on Teams")
-    public void clickOnTeams() {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href=\"./team.html\"]"))).click();
-    }
     @Then("Should find {string}")
     public void shouldFind(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -51,25 +36,7 @@ public class StepsDefinition {
 
     }
 
-
-    @Given("Browser is opened and on Google translate")
-    public void browserIsOpenedAndOnGoogleTranslate() {
-        System.setProperty(
-                "webdriver.chrome.driver",
-                PATH_TO_WEBDRIVER);
-        this.driver = new ChromeDriver();
-        driver.get(GOOGLE_TRANSLATE_URL);
-    }
-
-    @And("Type Software Engineer")
-    public void typeSoftwareEngineer() {
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        WebElement translationTextBox = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("tw-source-text-ta")));
-        translationTextBox.sendKeys("software engineer");
-    }
-
-    @When("Type {string}")
+    @And("Type {string}")
     public void type(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement moreLanguagesButton = wait.until(
@@ -90,7 +57,6 @@ public class StepsDefinition {
         translationTextBox.sendKeys(text);
     }
 
-
     @Then("Should translate into {string}")
     public void shouldTranslateInto(String arabicText) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -100,11 +66,9 @@ public class StepsDefinition {
 
     }
 
-
     @After
     public void cleanUp() {
         driver.close();
     }
-
 
 }
