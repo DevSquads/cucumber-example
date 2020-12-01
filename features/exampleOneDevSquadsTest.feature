@@ -6,5 +6,6 @@ Feature: DevSquads website
 
 
     Examples:
-      | website                | answer        |
-      | https://devsquads.com/ | What we offer |
+      | website                       | answer        |
+      | https://devsquads.com/        | What we offer |
+      | https://translate.google.com/ | Translation   |
