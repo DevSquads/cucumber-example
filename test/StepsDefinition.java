@@ -28,16 +28,27 @@ public class StepsDefinition {
         driver.get(url);
     }
 
-    @Then("Should find {string}")
-    public void shouldFind(String text) {
+    @Then("Should find a section title containing {string}")
+    public void shouldFindASectionTitleContaining(String text) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()[contains(.,'" + text + "')]]")));
 
     }
 
-    @When("I choose to translate into Arabic")
-    public void iChooseToTranslateIntoArabic() {
+    @When("I select auto detect language")
+    public void iSelectAutoDetectLanguage() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement autoDetectLanguageButton = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("button[data-language-code=\"auto\"]"))
+
+        );
+        autoDetectLanguageButton.click();
+    }
+
+    @And("choose to translate into Arabic")
+    public void translateIntoArabic() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement moreLanguagesButton = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
@@ -76,5 +87,6 @@ public class StepsDefinition {
     public void cleanUp() {
         driver.close();
     }
+
 
 }

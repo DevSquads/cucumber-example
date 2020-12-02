@@ -2,7 +2,8 @@ Feature: Google translate
 
   Scenario Outline: Translate from English to arabic
     Given I visit "https://translate.google.com/"
-    When I choose to translate into Arabic
+    When I select auto detect language
+    And choose to translate into Arabic
     And Type "<text>"
     Then Should translate into "<arabicText>"
 
