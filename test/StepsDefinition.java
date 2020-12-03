@@ -62,7 +62,6 @@ public class StepsDefinition {
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector("button[data-language-code=\"ar\"]"))
         );
-        moreLanguagesButton.click();
         arabicLanguageOption.click();
         moreLanguagesButton.click();
 
